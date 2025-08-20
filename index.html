@@ -23,14 +23,60 @@ header, nav, article, footer {
     margin: 10px;
 }
     
-</style>
+<style>.container {
+  display: flex;
+}
+
+nav {
+  width: 200px;
+}
+
+.content {
+  flex: 1;
+}</style>
 
 </head>
 <body>
-    <h1>Pagi yang cerah selalu menjadi awal yang baik untuk memulai hari.</h1>
-    <h2>setiap pelajaran yang ia ikuti adalah langkah kecil menuju cita-cita besarnya.</h2>
-    <h3>kegigihan dan kesabaran akan membawanya menuju kesuksesan.</h3>
-    <h4>masa depan yang cerah hanya dimiliki oleh mereka yang tak pernah menyerah.</h4>
-    <br>
+    <body>
+
+  <h2>STRUKTUR HTML & CSS</h2>
+
+  <header>
+    <h3>Header</h3>
+  </header>
+
+  <div class="container">
+    <nav>
+      <h3>Navigation</h3>
+      <ul>
+        <li>Link 1</li>
+        <li>Link 2</li>
+        <li>Link 3</li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <article>
+        <h3>Article 1</h3>
+        <p>Pagi yang cerah selalu menjadi awal yang baik untuk memulai hari.</p>
+      </article>
+
+      <article>
+        <h3>Article 2</h3>
+        <p>Setiap pelajaran yang diikuti adalah langkah kecil menuju cita-cita besarnya.</p>
+      </article>
+      
+      <article>
+        <h3>Article 3</h3>
+        <p>Kegigihan dan kesabaran akan membawanya menuju kesuksesan.</p>
+      </article>
+    </div>
+  </div>
+
+  <footer>
+    <p>Masa depan yang cerah hanya dimiliki oleh mereka yang tak pernah menyerah.</p>
+  </footer>
+
+</body>
 </body>
 </html>
