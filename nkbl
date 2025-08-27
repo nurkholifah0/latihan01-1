@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Card Grid</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #1a1f27;
+      --text: #e9eef5;
+      --muted: #aeb6c2;
+      --border: #2a2f3a;
+      --accent: #ff3b6e; /* merah muda seperti glow di gambar */
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 50% -100px, #1a1f27 0, var(--bg) 60%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: clamp(16px, 4vw, 40px);
+    }
+
+    .grid {
+      display: grid;
+      /* auto-fit + minmax membuat jumlah kolom otomatis menyesuaikan ukuran layar */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(16px, 2.5vw, 28px);
+    }
+
+    .card {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(18px, 3.2vw, 32px);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.02) inset,
+        0 24px 28px -28px rgba(0, 0, 0, 0.8);
+      overflow: clip;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.03) inset,
+        0 10px 30px -20px rgba(255, 59, 110, 0.35),
+        0 28px 60px -40px rgba(0, 0, 0, 0.9);
+    }
+
+    /* Glow merah lembut di bagian bawah kartu */
+    .card::after {
+      content: "";
+      position: absolute;
+      left: 10px; right: 10px; bottom: -10px;
+      height: 18px;
+      background: radial-gradient(60% 120% at 50% 0, rgba(255, 59, 110, 0.7), rgba(255, 59, 110, 0));
+      filter: blur(8px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    h2 {
+      margin: 0 0 12px 0;
+      font-size: clamp(28px, 4.6vw, 44px);
+      line-height: 1.15;
+      letter-spacing: 0.2px;
+    }
+
+    p { color: var(--muted); margin: 0; }
+
+    /* Opsional: beri sedikit ruang antar baris paragraf */
+    .card p + p { margin-top: 8px; }
+
+    /* Sentuhan responsif tambahan untuk layar sangat lebar */
+    @media (min-width: 1600px) {
+      .page { max-width: 1440px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="grid">
+      <!-- Duplikasi .card sesuai kebutuhan -->
+      <article class="card">
+        <h2>Hello World</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem cumque recusandae excepturi deleniti, necessitatibus repellat ab at dicta quia debitis, illo libero, vero magni suscipit veritatis. Laboriosam illum facere earum!</p>
+      </article>
+
+      <article class="card">
+        <h2>Hello World</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem cumque recusandae excepturi deleniti, necessitatibus repellat ab at dicta quia debitis, illo libero, vero magni suscipit veritatis. Laboriosam illum facere earum!</p>
+      </article>
+
+      <article class="card">
+        <h2>Hello World</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem cumque recusandae excepturi deleniti, necessitatibus repellat ab at dicta quia debitis, illo libero, vero magni suscipit veritatis. Laboriosam illum facere earum!</p>
+      </article>
+
+      <article class="card">
+        <h2>Hello World</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem cumque recusandae excepturi deleniti, necessitatibus repellat ab at dicta quia debitis, illo libero, vero magni suscipit veritatis. Laboriosam illum facere earum!</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
